@@ -2,9 +2,9 @@ module Utils
     exposing
         ( actionButton
         , attackButton
-        , bootstrap
         , both
         , debuggingView
+        , modalStyle
         , viewTab
         )
 
@@ -52,10 +52,17 @@ debuggingView data =
         ]
 
 
-bootstrap : Html msg
-bootstrap =
-    node "link"
-        [ href "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-        , rel "stylesheet"
+modalStyle : Html msg
+modalStyle =
+    div []
+        [ node "link"
+            [ href "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+            , rel "stylesheet"
+            ]
+            []
+        , node "link"
+            [ href "../style.css"
+            , rel "stylesheet"
+            ]
+            []
         ]
-        []

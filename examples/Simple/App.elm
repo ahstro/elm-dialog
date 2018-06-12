@@ -12,7 +12,7 @@ import Dialog
 import Html exposing (Html, button, div, h2, h3, text)
 import Html.Attributes exposing (class, style)
 import Html.Events exposing (onClick)
-import Utils exposing (bootstrap)
+import Utils exposing (modalStyle)
 
 
 ------------------------------------------------------------
@@ -78,7 +78,7 @@ or not.
 view : Model -> Html Msg
 view model =
     div [ style [ ( "margin", "45px" ) ] ]
-        [ bootstrap
+        [ modalStyle
         , h2 [] [ text (toString model.counter) ]
         , button
             [ class "btn btn-info"

@@ -1,4 +1,4 @@
-module Advanced.Utils exposing (actionButton, attackButton, bootstrap, both, debuggingView)
+module Advanced.Utils exposing (actionButton, attackButton, both, debuggingView, modalStyle)
 
 import Html exposing (Html, button, code, div, node, text)
 import Html.Attributes exposing (class, href, rel)
@@ -36,10 +36,17 @@ debuggingView data =
         ]
 
 
-bootstrap : Html msg
-bootstrap =
-    node "link"
-        [ href "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-        , rel "stylesheet"
+modalStyle : Html msg
+modalStyle =
+    div []
+        [ node "link"
+            [ href "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+            , rel "stylesheet"
+            ]
+            []
+        , node "link"
+            [ href "../style.css"
+            , rel "stylesheet"
+            ]
+            []
         ]
-        []

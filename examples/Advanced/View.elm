@@ -7,13 +7,13 @@ import Dialog
 import Html exposing (Html, div, h1, h2, li, text, ul)
 import Html.Attributes exposing (class, style)
 import Maybe.Extra exposing (or)
-import Utils exposing (bootstrap)
+import Utils exposing (modalStyle)
 
 
 root : Model -> Html Msg
 root model =
     div [ style [ ( "margin", "15px" ) ] ]
-        [ bootstrap
+        [ modalStyle
         , div [ class "container-fluid" ]
             [ h1 [] [ text "Advanced Demo" ]
             , instructions
