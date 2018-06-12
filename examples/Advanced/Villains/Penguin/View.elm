@@ -8,6 +8,7 @@ import Advanced.Villains.Penguin.Types
         )
 import Dialog
 import Html exposing (Html, div, h1, h2, text)
+import Html.Attributes exposing (class)
 import Utils exposing (actionButton, debuggingView)
 
 
@@ -30,16 +31,34 @@ dialog model =
             Just
                 { closeMessage = Just Close
                 , containerClass = Just "penguin-modal-container"
-                , header = Just (h1 [] [ text "Penguin says, \"Ouch!\"" ])
-                , body = Just (text "The penguin tries to dodge, which goes badly because penguins lack grace on land.")
-                , footer = Just (actionButton ( Close, "Take the pain" ))
+                , content =
+                    div
+                        []
+                        [ div [ class "modal-header" ]
+                            [ h1 [] [ text "Penguin says, \"Ouch!\"" ] ]
+                        , div [ class "modal-body" ]
+                            [ text "The penguin tries to dodge, which goes badly because penguins lack grace on land."
+                            ]
+                        , div [ class "modal-footer" ]
+                            [ actionButton ( Close, "Take the pain" )
+                            ]
+                        ]
                 }
 
         Warking ->
             Just
                 { closeMessage = Just Close
                 , containerClass = Just "penguin-modal-container"
-                , header = Just (h1 [] [ text "Penguin says, \"Wark!\"" ])
-                , body = Just (text "The Penguin laughs his weird laugh")
-                , footer = Just (actionButton ( Close, "Calm down" ))
+                , content =
+                    div
+                        []
+                        [ div [ class "modal-header" ]
+                            [ h1 [] [ text "Penguin says, \"Wark!\"" ] ]
+                        , div [ class "modal-body" ]
+                            [ text "The Penguin laughs his weird laugh"
+                            ]
+                        , div [ class "modal-footer" ]
+                            [ actionButton ( Close, "Calm down" )
+                            ]
+                        ]
                 }

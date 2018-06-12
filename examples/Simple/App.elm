@@ -100,16 +100,21 @@ dialogConfig : Model -> Dialog.Config Msg
 dialogConfig model =
     { closeMessage = Just Acknowledge
     , containerClass = Nothing
-    , header = Just (h3 [] [ text "1 Up!" ])
-    , body = Just (text ("The counter ticks up to " ++ toString model.counter ++ "."))
-    , footer =
-        Just
-            (button
-                [ class "btn btn-success"
-                , onClick Acknowledge
+    , content =
+        div
+            []
+            [ div [ class "modal-header" ]
+                [ h3 [] [ text "1 Up!" ] ]
+            , div [ class "modal-body" ]
+                [ text ("The counter ticks up to " ++ toString model.counter ++ ".") ]
+            , div [ class "modal-footer" ]
+                [ button
+                    [ class "btn btn-success"
+                    , onClick Acknowledge
+                    ]
+                    [ text "OK" ]
                 ]
-                [ text "OK" ]
-            )
+            ]
     }
 
 

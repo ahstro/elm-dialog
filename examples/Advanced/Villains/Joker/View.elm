@@ -3,6 +3,7 @@ module Advanced.Villains.Joker.View exposing (dialog, root)
 import Advanced.Villains.Joker.Types exposing (JokerState(Laughing, Screaming), Model, Msg(Close))
 import Dialog
 import Html exposing (Html, div, h1, h2, text)
+import Html.Attributes exposing (class)
 import Utils exposing (debuggingView)
 
 
@@ -24,7 +25,13 @@ dialog model =
             Just
                 { closeMessage = Just Close
                 , containerClass = Just "joker-modal-container"
-                , header = Just (h1 [] [ text "Joker says, \"Argh!\"" ])
-                , body = Just (text "The Joker is no longer smiling.")
-                , footer = Nothing
+                , content =
+                    div
+                        []
+                        [ div [ class "modal-header" ]
+                            [ h1 [] [ text "Joker says, \"Argh!\"" ] ]
+                        , div [ class "modal-body" ]
+                            [ text "The Joker is no longer smiling."
+                            ]
+                        ]
                 }
